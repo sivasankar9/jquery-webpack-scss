@@ -1,19 +1,23 @@
-const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    results: "./src/home/index.js",
+    races: "./src/races/races.js",
+  },
   output: {
-    filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      inject: true,
-      template: path.resolve(__dirname, 'src', 'index.html'),
+      filename: "index.html",
+      inject: "head",
+      chunks: ["results"],
+      template: path.resolve(__dirname, "src", "home/index.html"),
     }),
   ],
   module: {
@@ -22,9 +26,9 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /[\\/]node_modules[\\/]/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
-    ]
-  }
-}
+    ],
+  },
+};
