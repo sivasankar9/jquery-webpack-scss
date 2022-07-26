@@ -1,28 +1,33 @@
 @import "_variables";
+@import "_font";
 
 body {
     background-color: $margin-background-color;
     text-align: center;
-    img {
-        width: 50px;
-        height: 150px;
-    }
-    .main-container {
-        width: $content-width;
-        display: inline-block;
-        background-color: $content-background-color;
-        .col{
-            color:$text-color-red
-        }
-        .descrption{
-            color:$text-color-blue;
-            font-size: 12px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-    }
+}
 
-    ul {
-        list-style-type: none;
+img {
+    width: 50px;
+    height: 150px;
+}
+.main-container {
+    width: $content-width;
+    display: inline-block;
+    background-color: $content-background-color;
+    .col {
+        color: $text-color-red;
+    }
+    .descrption {
+        color: $text-color-blue;
+        font-size: 12px;
+        font-family: "Courier New", Courier, monospace;
     }
 }
 
+ul {
+    list-style-type: none;
+}
+
+h1{
+    font-family: "roboto-medium";
+}

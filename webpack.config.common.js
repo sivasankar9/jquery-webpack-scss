@@ -1,7 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -20,9 +20,8 @@ module.exports = {
       chunks: ["results"],
       template: path.resolve(__dirname, "src", "home/index.html"),
     }),
-    new CopyWebpackPlugin([   
-      {from: 'src/assests', to: 'assests'}   
-  ]),
+    new CopyWebpackPlugin([{ from: "src/assests", to: "assests" }]),
+    new CopyWebpackPlugin([{ from: "src/fonts", to: "fonts" }]),
   ],
   module: {
     rules: [
@@ -38,15 +37,26 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images',
+              name: "[name].[ext]",
+              outputPath: "images",
             },
           },
         ],
       },
+      {
+        test: /\.(woff|woff2|ttf|eot)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
+      },
     ],
-    
   },
 };
