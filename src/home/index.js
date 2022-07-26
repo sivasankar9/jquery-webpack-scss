@@ -16,10 +16,10 @@ import { ajaxGet, getImageTag } from "../utils/config";
   }
 
   window.onload = function () {
-    ajaxGet("beers?page=1&per_page=8", "GET", null).done((data) => {
-      data.forEach((r) =>
-        addRunnerResultToTable(r.id, r.tagline, r.description, r.image_url)
-      );
-    });
+    // ajaxGet("beers?page=1&per_page=8", "GET", null).done((data) => {
+    //   data.forEach((r) =>
+    //     addRunnerResultToTable(r.id, r.tagline, r.description, r.image_url)
+    //   );
+    // });
   };
 })($);

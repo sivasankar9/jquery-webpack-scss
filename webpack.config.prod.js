@@ -20,7 +20,7 @@ module.exports = merge(commonConfig, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: "css/[name].[contenthash].css",
     }),
   ],
   optimization: {
@@ -34,8 +34,6 @@ module.exports = merge(commonConfig, {
         },
       }),
       new TerserPlugin({
-        // Use multi-process parallel running to improve the build speed
-        // Default number of concurrent runs: os.cpus().length - 1
         parallel: true,
         // Enable file caching
         cache: true,
